@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://models/environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/archway/Archway.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/butchers/butchers.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/cloths/cloth_shop.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Spatial"]
 
@@ -22,3 +24,9 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.27121
 
 [node name="FrontArchway" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28051, 7.53242, -19.661 )
+
+[node name="butchers" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.07949, 7.59094, 11.3466 )
+
+[node name="cloth_shop" parent="butchers" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.52588, -0.0292599, -0.147945 )

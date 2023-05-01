@@ -4,9 +4,11 @@
 
 [sub_resource type="CapsuleShape" id=3]
 radius = 0.25
+height = 2.0
 
 [sub_resource type="CapsuleMesh" id=4]
 radius = 0.25
+mid_height = 2.0
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 1, 0.737255, 0.345098, 1 )
@@ -29,8 +31,8 @@ material/0 = SubResource( 5 )
 [node name="head" type="Spatial" parent="."]
 
 [node name="eyes" type="MeshInstance" parent="head"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.244457, -1.91696e-08, -0.438549 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.244457, -3.96979e-08, -0.908181 )
 mesh = SubResource( 6 )
 
 [node name="Camera" type="Camera" parent="head"]
-transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.229322, -1.84954e-08, -0.423124 )
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.229322, -3.93966e-08, -0.901287 )
