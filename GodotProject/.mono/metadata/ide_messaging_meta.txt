@@ -1,0 +1,2 @@
+﻿60708
+/Users/keithohanlon/Desktop/Godot_mono.app/Contents/MacOS/Godot
