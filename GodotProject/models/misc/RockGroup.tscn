@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://models/misc/Rock4.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/misc/Rock3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/misc/Rock2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/misc/Rock1.tscn" type="PackedScene" id=4]
+
+[node name="RockGroup" type="Spatial"]
+
+[node name="Rock1" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.97179, 0, 0.334742, 0, 2, 0, -0.334742, 0, 1.97179, -12.7143, 8.99078, -18.0055 )
+
+[node name="Rock2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.97179, 0, 0.334742, 0, 2, 0, -0.334742, 0, 1.97179, -19.3611, 9.61451, -11.2867 )
+
+[node name="Rock3" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.54795, 0, 2.56721, 0, 2.99779, 0, -2.56721, 0, -1.54795, -18.219, 8.84772, -19.0697 )
+
+[node name="Rock4" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.03273, 0, 1.71274, 0, 2, 0, -1.71274, 0, -1.03273, -12.3241, 4.87262, -11.3723 )
