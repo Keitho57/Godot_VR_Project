@@ -133,6 +133,8 @@ transform = Transform( 0.221043, 0, -0.0130183, 0, 0.152488, 0, 0.0130183, 0, 0.
 
 [node name="Tree25" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.189709, 0, 0.114194, 0, 0.234591, 0, -0.114194, 0, 0.189709, 11.515, 7.90508, 3.83369 )
+script = ExtResource( 15 )
+type = "wood"
 
 [node name="Tree4" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.290915, 0, -0.117007, 0, 0.270749, 0, 0.117007, 0, 0.290915, -6.44967, 8.58177, -8.21167 )

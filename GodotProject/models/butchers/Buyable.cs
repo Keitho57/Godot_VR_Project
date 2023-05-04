@@ -26,7 +26,11 @@ public class Buyable : Node
 	
 	public void transaction()
 	{
-		Global.inventory[type] -= cost;
+		if (cost > 0 && type != "coin" && Global.inventory[type] >= cost)
+		{
+			Global.inventory["coin"] += cost;
+		}
+		Global.inventory[type] = Math.Max(Global.inventory[type] - cost, 0);
 		active = false;
 	}
 
