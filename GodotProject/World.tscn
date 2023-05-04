@@ -3,7 +3,7 @@
 [ext_resource path="res://models/environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/archway/Archway.tscn" type="PackedScene" id=3]
-[ext_resource path="res://models/butchers/butchers.tscn" type="PackedScene" id=4]
+[ext_resource path="res://models/ButcherV2/butcherV2_shop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/cloths/cloth_shop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://models/weapons/weapons.tscn" type="PackedScene" id=6]
 [ext_resource path="res://models/produce/produce.tscn" type="PackedScene" id=7]
@@ -18,10 +18,12 @@
 [node name="World" type="Spatial"]
 
 [node name="Sun" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 1.38537, 27.5108, -16.4012 )
-light_color = Color( 0.921569, 0.937255, 0.796078, 1 )
-light_energy = 4.0
+transform = Transform( 0.951344, -0.0163116, -0.307699, -0.304044, 0.112407, -0.946003, 0.0500183, 0.993528, 0.101978, 1.0254, 28.0411, -4.8032 )
+light_color = Color( 0.894118, 0.87451, 0.592157, 1 )
+light_energy = 3.0
 light_specular = 0.573
+shadow_color = Color( 1, 1, 1, 1 )
+shadow_bias = -0.162
 
 [node name="Environment" parent="." instance=ExtResource( 1 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
@@ -36,6 +38,12 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.34585
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.27121, 11.0482, 0 )
 
 [node name="Stalls" type="Node" parent="."]
+
+[node name="butcherV2_shop" parent="Stalls" instance=ExtResource( 4 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 14.4046, 7.53527, 8.55794 )
+
+[node name="butcherV2_shop2" parent="Stalls" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4.03849, 7.52145, -13.7951 )
 
 [node name="weapons" parent="Stalls" instance=ExtResource( 6 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4.49893, 7.50329, 6.03818 )
@@ -59,7 +67,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4.60676, 7.52565, -12.7159 )
 [node name="Rocks" type="Node" parent="."]
 
 [node name="RockGroup" parent="Rocks" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12836, -1.66742, -8.12499 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12836, -1.66742, -3.4241 )
 
 [node name="RockGroup4" parent="Rocks" instance=ExtResource( 8 )]
 transform = Transform( 3.44215, 0, 3.62651, 0, 5, 0, -3.62651, 0, 3.44215, 57.9597, -35.7373, 26.8669 )
