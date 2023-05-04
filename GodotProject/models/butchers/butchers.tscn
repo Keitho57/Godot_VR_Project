@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://models/butchers/red2.material" type="Material" id=2]
 [ext_resource path="res://models/butchers/wood.material" type="Material" id=3]
+[ext_resource path="res://models/butchers/Buyable.cs" type="Script" id=4]
 [ext_resource path="res://models/butchers/gold.material" type="Material" id=5]
 [ext_resource path="res://models/butchers/red.material" type="Material" id=6]
 [ext_resource path="res://models/butchers/white.material" type="Material" id=7]
@@ -185,6 +186,7 @@ surfaces/3 = {
 
 [node name="butchers" type="StaticBody"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+script = ExtResource( 4 )
 
 [node name=" botcher market" type="MeshInstance" parent="."]
 transform = Transform( 2.03192, 0, 0, 0, 0.160678, 0, 0, 0, 2.03192, 0, 0, 0 )

@@ -14,6 +14,10 @@ config/name="cs423_final_project"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scripts/Global.cs"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
