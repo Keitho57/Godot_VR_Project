@@ -30,23 +30,23 @@ public class GazeBuy : Camera
 		
 		if (rayCollisions != null && rayCollisions.Contains("collider"))
 		{
-			
-			
 			target = (Node) rayCollisions["collider"];
 			//GD.Print(target.GetType());
 			
-			if (Global.buyableNodes.Contains(target))
+			if (Global.buyableNodes.Contains(target) && ((Buyable) target).active)
 			{
 				currentLookTime = Math.Max(currentLookTime - delta, 0);
 				if (currentLookTime == 0 && !lLock)
 				{
 					lLock = true;
-					int cost = ((Buyable) target).cost;
-					Global.balance -= cost;
+					((Buyable) target).transaction();
+					// int cost = ((Buyable) target).cost;
+					// string type = ((Buyable) target).type;
+					// Global.inventory[type] -= cost;
 					
-					Global.buyableNodes.Remove(target);
+					// Global.buyableNodes.Remove(target);
 
-					target.GetParent().RemoveChild(target);
+					// target.GetParent().RemoveChild(target);
 				}
 			}
 			else
