@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ArrayMesh" id=3]
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -1.70745, 0.751231, 0.525597, -0.276606, -0.447616, 0.85064, 0.611453, 3.6301, 0.416846, -0.17206, 4.7824, -0.588274, -0.223754, 3.96221, -2.24408, -1.44937, -0.835701, -0.439838, 1.26457, -1.37663, 0.385038, 2.23365, 3.96472, -1.22715, 0.936277, -1.64332, -1.47192, -0.604902, -0.714936, -1.6561 )
+
+[node name="StaticBody" type="StaticBody"]
+
+[node name="Icosphere002" type="MeshInstance" parent="."]
+use_in_baked_light = true
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )

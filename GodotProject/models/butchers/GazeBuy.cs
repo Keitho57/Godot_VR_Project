@@ -13,11 +13,12 @@ public class GazeBuy : Camera
 	public static float lookTime = 5;
 	public static float currentLookTime = lookTime;
 	bool lLock = false;
-
+	//TextureProgress progressBar;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		rayPoint = new Vector2(OS.WindowSize.x / 2, OS.WindowSize.y / 2);
+		//progressBar = GetNode<TextureProgress>("TextureProgress");
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,6 +39,8 @@ public class GazeBuy : Camera
 			if (Global.buyableNodes.Contains(target))
 			{
 				currentLookTime = Math.Max(currentLookTime - delta, 0);
+				// Update the value of the TextureProgress node based on the currentLookTime variable
+				//progressBar.Value = (int)(currentLookTime / lookTime * progressBar.MaxValue);
 				if (currentLookTime == 0 && !lLock)
 				{
 					lLock = true;
@@ -54,6 +57,8 @@ public class GazeBuy : Camera
 				target = null;
 				currentLookTime = lookTime;
 				lLock = false;
+				// Reset the value of the TextureProgress node
+				//progressBar.Value = 0;
 			}
 		}
 		else
@@ -61,6 +66,7 @@ public class GazeBuy : Camera
 			target = null;
 			currentLookTime = lookTime;
 			lLock = false;
+			//progressBar.Value = 0;
 		}
 	}
 }
