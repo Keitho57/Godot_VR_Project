@@ -1,22 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BalanceUI.cs" type="Script" id=1]
 [ext_resource path="res://TimeLeftUI.cs" type="Script" id=2]
 [ext_resource path="res://coin.png" type="Texture" id=3]
-[ext_resource path="res://ring_texture-removebg-preview.png" type="Texture" id=4]
 [ext_resource path="res://wood.png" type="Texture" id=4]
 [ext_resource path="res://stone.png" type="Texture" id=5]
+[ext_resource path="res://ring_texture-removebg-preview.png" type="Texture" id=6]
 
 [node name="UI" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
-
-[node name="TimeLeft" type="Label" parent="."]
-margin_left = 14.0
-margin_right = 54.0
-margin_bottom = 14.0
-text = "Test"
-script = ExtResource( 2 )
 
 [node name="CoinBalance" type="Control" parent="."]
 margin_right = 40.0
@@ -42,8 +35,8 @@ margin_top = 58.0
 margin_right = 774.0
 margin_bottom = 544.0
 value = 8.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 4 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 6 )
 fill_mode = 4
 tint_under = Color( 0.12549, 0.121569, 0.121569, 0.729412 )
 tint_progress = Color( 0.0156863, 0.639216, 0.113725, 1 )

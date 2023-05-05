@@ -8,27 +8,55 @@ public class Buyable : Node, Gazeable
 
 	[Export]
 	public int cost = 10;
-  
-  [Export(PropertyHint.Enum, "coin,wood,gold")]
+
+	[Export(PropertyHint.Enum, "coin,wood,gold")]
 	public string type = "coin";
-  
-  [Export]
+
+	[Export]
 	public float lookTime = 1;
 	
 	public float currentLookTime;
-  
 	public bool active = true;
 	public static float cooldown = 10;
 	public float currentCooldown = cooldown;
 
-	public void onGaze(float delta)
+	public void transaction()
 	{
-		interacting = true;
+		if (cost > 0 && type != "coin")
+		{
+			Global.inventory["coin"] += cost;
+		}
+		Global.inventory[type] -= cost;
+		active = false;
+	}
 
-		currentLookTime = Math.Max(currentLookTime - delta, 0);
+	public bool canAfford()
+	{
+		return Global.inventory[type] >= cost;
+	}
 
-		// Update UI
-		Global.interactionTimer = currentLookTime / lookTime;
+	public void onGaze(float delta)
+	{	
+		if (canAfford() && active)
+		{
+			interacting = true;
+
+			currentLookTime = Math.Max(currentLookTime - delta, 0);
+
+			if (currentLookTime == 0 && active)
+			{
+				transaction();
+				active = false;
+
+				// Update UI
+				Global.interactionTimer = -1;
+			}
+			else
+			{
+				// Update UI
+			Global.interactionTimer = currentLookTime / lookTime;
+			}
+		}
 	}
 
 	public void endGaze(float delta)
@@ -49,16 +77,6 @@ public class Buyable : Node, Gazeable
 		GD.Print(Global.buyableNodes.Count);
 
 		currentLookTime = lookTime;
-	}
-	
-	public void transaction()
-	{
-		if (cost > 0 && type != "coin" && Global.inventory[type] >= cost)
-		{
-			Global.inventory["coin"] += cost;
-		}
-		Global.inventory[type] = Math.Max(Global.inventory[type] - cost, 0);
-		active = false;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
