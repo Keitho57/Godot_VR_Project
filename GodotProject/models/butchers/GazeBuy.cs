@@ -92,8 +92,16 @@ public class GazeBuy : Camera
 		else
 		{
 			target = null;
+
+			if (last != null && last is Gazeable)
+			{
+				((Gazeable) last).endGaze(delta);
+			}
+
 			currentLookTime = lookTime;
 			lLock = false;
+
+			last = null;
 			//progressBar.Value = 0;
 		}
 	}

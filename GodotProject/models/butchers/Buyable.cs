@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Buyable : Node, Gazeable
+public class Buyable : StaticBody, Gazeable
 {
 	
 	private bool interacting = false;
@@ -20,6 +20,8 @@ public class Buyable : Node, Gazeable
 	public static float cooldown = 10;
 	public float currentCooldown = cooldown;
 
+	private Vector3 initialScale;
+
 	public void transaction()
 	{
 		if (cost > 0 && type != "coin")
@@ -28,6 +30,8 @@ public class Buyable : Node, Gazeable
 		}
 		Global.inventory[type] -= cost;
 		active = false;
+
+		
 	}
 
 	public bool canAfford()
@@ -77,6 +81,8 @@ public class Buyable : Node, Gazeable
 		GD.Print(Global.buyableNodes.Count);
 
 		currentLookTime = lookTime;
+
+		initialScale = Scale * 1;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -84,10 +90,24 @@ public class Buyable : Node, Gazeable
 	{
 		if (!active)
 		{
+			Scale = initialScale * (1 - currentCooldown / cooldown);
+
 			currentCooldown = Math.Max(currentCooldown - delta, 0);
 
 			if (currentCooldown == 0)
 			{
+				Scale = initialScale;
+				var children = GetChildren();
+
+				foreach (var child in children)
+				{
+					if (child is AnimationPlayer)
+					{
+						RemoveChild((Node)child);
+						GD.Print("b");
+					}
+				}
+
 				currentCooldown = cooldown;
 				active = true;
 			} 
