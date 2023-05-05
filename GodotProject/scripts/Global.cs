@@ -9,7 +9,9 @@ public class Global : Node
 	// private string b = "text";
 	
 	public static List<Node> buyableNodes = new List<Node>();
-	
+
+	public static float interactionTimer = -1;
+
 	public static Dictionary<string,int> inventory = new Dictionary<string,int>(){
 		{ "coin", 100},
 		{ "wood", 0},

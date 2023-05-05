@@ -89,31 +89,3 @@ material/0 = SubResource( 6 )
 [node name="CollisionShape3" type="CollisionShape" parent="."]
 transform = Transform( 7.58776, 0, 0, 0, 3.24801, 0, 0, 0, 0.450469, 13.5331, 3.2803, 0 )
 shape = SubResource( 7 )
-
-[node name="walls2" type="MeshInstance" parent="."]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 1 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="."]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 3 )
-
-[node name="door2" type="MeshInstance" parent="."]
-mesh = SubResource( 2 )
-
-[node name="CollisionShape5" type="CollisionShape" parent="."]
-shape = SubResource( 4 )
-
-[node name="WallRight3" type="MeshInstance" parent="."]
-transform = Transform( 7.58776, 0, 0, 0, 3.24801, 0, 0, 0, 0.450469, 13.5331, 3.2803, 0 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
-
-[node name="WallRight4" type="MeshInstance" parent="."]
-transform = Transform( 7.58776, 0, 0, 0, 3.24801, 0, 0, 0, 0.450469, -13.397, 3.2803, 0 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="."]
-transform = Transform( 7.58776, 0, 0, 0, 3.24801, 0, 0, 0, 0.450469, 13.5331, 3.2803, 0 )
-shape = SubResource( 7 )

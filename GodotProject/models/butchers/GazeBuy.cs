@@ -8,19 +8,23 @@ public class GazeBuy : Camera
 	// private string b = "text";
 
 	private Vector2 rayPoint;
+
+	private Node last;
 	
 	Node target;
 	public static float lookTime = 5;
 	public static float currentLookTime = lookTime;
 	bool lLock = false;
-
+	//TextureProgress progressBar;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		rayPoint = new Vector2(OS.WindowSize.x / 2, OS.WindowSize.y / 2);
+		//progressBar = GetNode<TextureProgress>("TextureProgress");
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+
 	public override void _Process(float delta)
 	{
 		var from = ProjectRayOrigin(rayPoint);
@@ -33,7 +37,17 @@ public class GazeBuy : Camera
 			target = (Node) rayCollisions["collider"];
 			//GD.Print(target.GetType());
 			
-			if (Global.buyableNodes.Contains(target) && ((Buyable) target).active)
+			if (target is Gazeable)
+			{
+				((Gazeable) target).onGaze(delta);
+			}
+
+			if (last != target && last is Gazeable)
+			{
+				((Gazeable) last).endGaze(delta);
+			}
+      
+      if (Global.buyableNodes.Contains(target) && ((Buyable) target).active)
 			{
 				currentLookTime = Math.Max(currentLookTime - delta, 0);
 				if (currentLookTime == 0 && !lLock)
@@ -48,19 +62,39 @@ public class GazeBuy : Camera
 
 					// target.GetParent().RemoveChild(target);
 				}
-			}
-			else
-			{
-				target = null;
-				currentLookTime = lookTime;
-				lLock = false;
-			}
+      
+			// if (Global.buyableNodes.Contains(target))
+			// {
+			// 	currentLookTime = Math.Max(currentLookTime - delta, 0);
+			// 	// Update the value of the TextureProgress node based on the currentLookTime variable
+			// 	//progressBar.Value = (int)(currentLookTime / lookTime * progressBar.MaxValue);
+			// 	if (currentLookTime == 0 && !lLock)
+			// 	{
+			// 		lLock = true;
+			// 		int cost = ((Buyable) target).cost;
+			// 		Global.balance -= cost;
+					
+			// 		Global.buyableNodes.Remove(target);
+
+			// 		target.GetParent().RemoveChild(target);
+			// 	}
+			// }
+			// else
+			// {
+			// 	target = null;
+			// 	currentLookTime = lookTime;
+			// 	lLock = false;
+			// 	// Reset the value of the TextureProgress node
+			// 	//progressBar.Value = 0;
+			// }
+			last = target;
 		}
 		else
 		{
 			target = null;
 			currentLookTime = lookTime;
 			lLock = false;
+			//progressBar.Value = 0;
 		}
 	}
 }
