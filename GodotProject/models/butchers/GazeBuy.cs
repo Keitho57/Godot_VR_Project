@@ -8,6 +8,8 @@ public class GazeBuy : Camera
 	// private string b = "text";
 
 	private Vector2 rayPoint;
+
+	private Node last;
 	
 	Node target;
 	public static float lookTime = 5;
@@ -22,6 +24,7 @@ public class GazeBuy : Camera
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
+
 	public override void _Process(float delta)
 	{
 		var from = ProjectRayOrigin(rayPoint);
@@ -31,35 +34,60 @@ public class GazeBuy : Camera
 		
 		if (rayCollisions != null && rayCollisions.Contains("collider"))
 		{
-			
-			
 			target = (Node) rayCollisions["collider"];
 			//GD.Print(target.GetType());
 			
-			if (Global.buyableNodes.Contains(target))
+			if (target is Gazeable)
 			{
-				currentLookTime = Math.Max(currentLookTime - delta, 0);
-				// Update the value of the TextureProgress node based on the currentLookTime variable
-				//progressBar.Value = (int)(currentLookTime / lookTime * progressBar.MaxValue);
-				if (currentLookTime == 0 && !lLock)
-				{
-					lLock = true;
-					int cost = ((Buyable) target).cost;
-					Global.balance -= cost;
-					
-					Global.buyableNodes.Remove(target);
+				((Gazeable) target).onGaze(delta);
+			}
 
-					target.GetParent().RemoveChild(target);
-				}
-			}
-			else
+			if (last != target && last is Gazeable)
 			{
-				target = null;
-				currentLookTime = lookTime;
-				lLock = false;
-				// Reset the value of the TextureProgress node
-				//progressBar.Value = 0;
+				((Gazeable) last).endGaze(delta);
 			}
+
+			// if (Global.buyableNodes.Contains(target) && ((Buyable) target).active)
+			// {
+			// 	currentLookTime = Math.Max(currentLookTime - delta, 0);
+			// 	if (currentLookTime == 0 && !lLock)
+			// 	{
+			// 		lLock = true;
+			// 		((Buyable) target).transaction();
+			// 		// int cost = ((Buyable) target).cost;
+			// 		// string type = ((Buyable) target).type;
+			// 		// Global.inventory[type] -= cost;
+					
+			// 		// Global.buyableNodes.Remove(target);
+
+			// 		// target.GetParent().RemoveChild(target);
+			// 	}
+			// }
+			// if (Global.buyableNodes.Contains(target))
+			// {
+			// 	currentLookTime = Math.Max(currentLookTime - delta, 0);
+			// 	// Update the value of the TextureProgress node based on the currentLookTime variable
+			// 	//progressBar.Value = (int)(currentLookTime / lookTime * progressBar.MaxValue);
+			// 	if (currentLookTime == 0 && !lLock)
+			// 	{
+			// 		lLock = true;
+			// 		int cost = ((Buyable) target).cost;
+			// 		Global.balance -= cost;
+					
+			// 		Global.buyableNodes.Remove(target);
+
+			// 		target.GetParent().RemoveChild(target);
+			// 	}
+			// }
+			// else
+			// {
+			// 	target = null;
+			// 	currentLookTime = lookTime;
+			// 	lLock = false;
+			// 	// Reset the value of the TextureProgress node
+			// 	//progressBar.Value = 0;
+			// }
+			last = target;
 		}
 		else
 		{

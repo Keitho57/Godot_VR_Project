@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class TimeLeftUI : Label
+public class TimeLeftUI : TextureProgress
 {
 	// Declare member variables here. Examples:
 	// private int a = 2;
@@ -16,6 +16,14 @@ public class TimeLeftUI : Label
  // Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		Text = GazeBuy.currentLookTime + "";
+		if (Global.interactionTimer == -1)
+		{
+			Visible = false;
+		}
+		else
+		{
+			Visible = true;
+			Value = (int)(100 - Global.interactionTimer * 100);
+		}
 	}
 }
