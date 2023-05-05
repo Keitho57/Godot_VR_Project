@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class Buyable : StaticBody, Gazeable
+public class Sellable : StaticBody, Gazeable
 {
 	
 	private bool interacting = false;
 
 	[Export]
-	public int cost = 10;
+	public int value = 1;
 
 	[Export(PropertyHint.Enum, "coin,wood,gold")]
 	public string type = "coin";
@@ -17,34 +17,20 @@ public class Buyable : StaticBody, Gazeable
 	
 	public float currentLookTime;
 	public bool active = true;
-	public static float cooldown = 10;
+	public static float cooldown = 1;
 	public float currentCooldown = cooldown;
-
-	private Vector3 initialScale;
 
 	public void transaction()
 	{
-		if (cost > 0 && type != "coin")
-		{
-			switch (type)
-			{
-				case "gold":
-					Global.inventory["coin"] += 5;
-					break;
-				default:
-					Global.inventory["coin"] += cost;
-					break;
-			}
-		}
-		Global.inventory[type] -= cost;
-		active = false;
+		Global.inventory["coin"] += Global.inventory[type] * value;
+		Global.inventory[type] = 0;
 
-		
+		active = false;
 	}
 
 	public bool canAfford()
 	{
-		return Global.inventory[type] >= cost;
+		return Global.inventory[type] > 0;
 	}
 
 	public void onGaze(float delta)
@@ -89,8 +75,6 @@ public class Buyable : StaticBody, Gazeable
 		GD.Print(Global.buyableNodes.Count);
 
 		currentLookTime = lookTime;
-
-		initialScale = Scale * 1;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -98,13 +82,11 @@ public class Buyable : StaticBody, Gazeable
 	{
 		if (!active)
 		{
-			Scale = initialScale * (1 - currentCooldown / cooldown);
 
 			currentCooldown = Math.Max(currentCooldown - delta, 0);
 
 			if (currentCooldown == 0)
 			{
-				Scale = initialScale;
 				var children = GetChildren();
 
 				foreach (var child in children)

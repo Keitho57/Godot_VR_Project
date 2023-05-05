@@ -28,7 +28,7 @@ public class GazeBuy : Camera
 	public override void _Process(float delta)
 	{
 		var from = ProjectRayOrigin(rayPoint);
-		var to = from + ProjectRayNormal(rayPoint) * Far;
+		var to = from + ProjectRayNormal(rayPoint) * 5;
 
 		var rayCollisions = GetWorld().DirectSpaceState.IntersectRay(from, to);
 		

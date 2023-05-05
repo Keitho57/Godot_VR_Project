@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://models/environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://models/misc/Bush.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://models/butchers/Buyable.cs" type="Script" id=15]
+[ext_resource path="res://models/Gold Deposit/Deposit_Rock.tscn" type="PackedScene" id=16]
+[ext_resource path="res://models/butchers/Sellable.cs" type="Script" id=17]
 
 [node name="World" type="Spatial"]
 
@@ -52,9 +54,15 @@ transform = Transform( -1.99325, 0, -0.164225, 0, 2, 0, 0.164225, 0, -1.99325, 1
 
 [node name="butchers" parent="Stalls" instance=ExtResource( 4 )]
 transform = Transform( -1.9814, 0, 0.272157, 0, 2, 0, -0.272157, 0, -1.9814, 15.4212, 0.54641, 9.58723 )
+script = ExtResource( 17 )
+value = 1
+type = "wood"
 
 [node name="butchers2" parent="Stalls" instance=ExtResource( 4 )]
 transform = Transform( 1.99756, 0, -0.0987455, 0, 2, 0, 0.0987455, 0, 1.99756, -4.55358, 0.52565, -13.8336 )
+script = ExtResource( 17 )
+value = 5
+type = "gold"
 
 [node name="Rocks" type="Node" parent="."]
 
@@ -292,3 +300,6 @@ skeleton = NodePath("../..")
 
 [node name="Rock3" parent="Ores" instance=ExtResource( 10 )]
 transform = Transform( 0.938662, -0.428203, 0.57081, -0.561003, 0.140039, 1.02759, -0.440973, -1.08964, -0.0922514, -20.5121, 0.28693, 5.20808 )
+
+[node name="Deposit_rock" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0676, 0.666636, 3.54097 )
