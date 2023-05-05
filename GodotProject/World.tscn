@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://models/environment/Environment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://models/misc/Wall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://models/misc/Bush.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://models/butchers/Buyable.cs" type="Script" id=15]
 
 [node name="World" type="Spatial"]
 
@@ -109,6 +110,9 @@ transform = Transform( 0.776498, 0, -0.132667, 0, 0.50089, 0, 0.132667, 0, 0.776
 
 [node name="Tree2" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.217733, 0, -0.39422, 0, 0.190659, 0, 0.39422, 0, 0.217733, -1.65336, 7.90508, 0.644881 )
+script = ExtResource( 15 )
+cost = -10
+type = "wood"
 
 [node name="Tree3" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.221043, 0, -0.0130183, 0, 0.10564, 0, 0.0130183, 0, 0.221043, -1.23766, 7.90508, 2.32725 )
@@ -121,6 +125,8 @@ transform = Transform( 0.221043, 0, -0.0130183, 0, 0.152488, 0, 0.0130183, 0, 0.
 
 [node name="Tree25" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.189709, 0, 0.114194, 0, 0.234591, 0, -0.114194, 0, 0.189709, 11.515, 7.90508, 3.83369 )
+script = ExtResource( 15 )
+type = "wood"
 
 [node name="Tree4" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.290915, 0, -0.117007, 0, 0.270749, 0, 0.117007, 0, 0.290915, -6.44967, 8.58177, -8.21167 )

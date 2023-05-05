@@ -8,11 +8,18 @@ public class Buyable : Node, Gazeable
 
 	[Export]
 	public int cost = 10;
-
-	[Export]
+  
+  [Export(PropertyHint.Enum, "coin,wood,gold")]
+	public string type = "coin";
+  
+  [Export]
 	public float lookTime = 1;
 	
 	public float currentLookTime;
+  
+	public bool active = true;
+	public static float cooldown = 10;
+	public float currentCooldown = cooldown;
 
 	public void onGaze(float delta)
 	{
@@ -43,10 +50,29 @@ public class Buyable : Node, Gazeable
 
 		currentLookTime = lookTime;
 	}
+	
+	public void transaction()
+	{
+		if (cost > 0 && type != "coin" && Global.inventory[type] >= cost)
+		{
+			Global.inventory["coin"] += cost;
+		}
+		Global.inventory[type] = Math.Max(Global.inventory[type] - cost, 0);
+		active = false;
+	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		
+		if (!active)
+		{
+			currentCooldown = Math.Max(currentCooldown - delta, 0);
+
+			if (currentCooldown == 0)
+			{
+				currentCooldown = cooldown;
+				active = true;
+			} 
+		}
 	}
 }

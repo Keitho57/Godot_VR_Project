@@ -46,7 +46,23 @@ public class GazeBuy : Camera
 			{
 				((Gazeable) last).endGaze(delta);
 			}
+      
+      if (Global.buyableNodes.Contains(target) && ((Buyable) target).active)
+			{
+				currentLookTime = Math.Max(currentLookTime - delta, 0);
+				if (currentLookTime == 0 && !lLock)
+				{
+					lLock = true;
+					((Buyable) target).transaction();
+					// int cost = ((Buyable) target).cost;
+					// string type = ((Buyable) target).type;
+					// Global.inventory[type] -= cost;
+					
+					// Global.buyableNodes.Remove(target);
 
+					// target.GetParent().RemoveChild(target);
+				}
+      
 			// if (Global.buyableNodes.Contains(target))
 			// {
 			// 	currentLookTime = Math.Max(currentLookTime - delta, 0);

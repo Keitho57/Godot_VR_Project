@@ -1,19 +1,28 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://BalanceUI.cs" type="Script" id=1]
 [ext_resource path="res://TimeLeftUI.cs" type="Script" id=2]
 [ext_resource path="res://coin.png" type="Texture" id=3]
 [ext_resource path="res://ring_texture-removebg-preview.png" type="Texture" id=4]
+[ext_resource path="res://wood.png" type="Texture" id=4]
+[ext_resource path="res://stone.png" type="Texture" id=5]
 
 [node name="UI" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Balance" type="Control" parent="."]
+[node name="TimeLeft" type="Label" parent="."]
+margin_left = 14.0
+margin_right = 54.0
+margin_bottom = 14.0
+text = "Test"
+script = ExtResource( 2 )
+
+[node name="CoinBalance" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="BalanceText" type="Label" parent="Balance"]
+[node name="CoinBalanceText" type="Label" parent="CoinBalance"]
 margin_left = 71.0
 margin_top = 36.0
 margin_right = 91.0
@@ -22,7 +31,7 @@ rect_scale = Vector2( 4, 4 )
 text = "10"
 script = ExtResource( 1 )
 
-[node name="Coin" type="Sprite" parent="."]
+[node name="Coin" type="Sprite" parent="CoinBalance"]
 position = Vector2( 32, 66 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
@@ -39,3 +48,43 @@ fill_mode = 4
 tint_under = Color( 0.12549, 0.121569, 0.121569, 0.729412 )
 tint_progress = Color( 0.0156863, 0.639216, 0.113725, 1 )
 script = ExtResource( 2 )
+
+[node name="WoodBalance" type="Control" parent="."]
+margin_top = 57.0
+margin_right = 40.0
+margin_bottom = 97.0
+
+[node name="WoodBalanceText" type="Label" parent="WoodBalance"]
+margin_left = 71.0
+margin_top = 36.0
+margin_right = 91.0
+margin_bottom = 50.0
+rect_scale = Vector2( 4, 4 )
+text = "10"
+script = ExtResource( 1 )
+type = "wood"
+
+[node name="Wood" type="Sprite" parent="WoodBalance"]
+position = Vector2( 32, 66 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="StoneBalance" type="Control" parent="."]
+margin_top = 131.0
+margin_right = 40.0
+margin_bottom = 171.0
+
+[node name="WoodBalanceText" type="Label" parent="StoneBalance"]
+margin_left = 71.0
+margin_top = 36.0
+margin_right = 91.0
+margin_bottom = 50.0
+rect_scale = Vector2( 4, 4 )
+text = "10"
+script = ExtResource( 1 )
+type = "gold"
+
+[node name="Stone" type="Sprite" parent="StoneBalance"]
+position = Vector2( 32, 66 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
