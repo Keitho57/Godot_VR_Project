@@ -55,7 +55,6 @@ margin_bottom = 50.0
 rect_scale = Vector2( 4, 4 )
 text = "10"
 script = ExtResource( 1 )
-type = "wood"
 
 [node name="Wood" type="Sprite" parent="WoodBalance"]
 position = Vector2( 32, 66 )
@@ -75,7 +74,6 @@ margin_bottom = 50.0
 rect_scale = Vector2( 4, 4 )
 text = "10"
 script = ExtResource( 1 )
-type = "gold"
 
 [node name="Stone" type="Sprite" parent="StoneBalance"]
 position = Vector2( 32, 66 )
