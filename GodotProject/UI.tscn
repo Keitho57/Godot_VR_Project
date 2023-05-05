@@ -9,14 +9,6 @@
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="TimeLeft" type="Label" parent="."]
-margin_left = 14.0
-margin_right = 54.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( -334, -65 )
-text = "Test"
-script = ExtResource( 2 )
-
 [node name="Balance" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -38,9 +30,10 @@ texture = ExtResource( 3 )
 [node name="TextureProgress" type="TextureProgress" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-value = 5.0
+value = 8.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 4 )
 fill_mode = 4
 tint_under = Color( 0.12549, 0.121569, 0.121569, 0.729412 )
 tint_progress = Color( 0.0156863, 0.639216, 0.113725, 1 )
+script = ExtResource( 2 )

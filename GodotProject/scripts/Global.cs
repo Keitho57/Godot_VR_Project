@@ -11,6 +11,8 @@ public class Global : Node
 	public static List<Node> buyableNodes = new List<Node>();
 	
 	public static int balance = 120;
+
+	public static float interactionTimer = -1;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
