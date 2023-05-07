@@ -14,6 +14,9 @@ public class Buyable : StaticBody, Gazeable
 
 	[Export]
 	public float lookTime = 1;
+
+	[Export]
+	public string name = "";
 	
 	public float currentLookTime;
 	public bool active = true;
@@ -49,6 +52,15 @@ public class Buyable : StaticBody, Gazeable
 
 	public void onGaze(float delta)
 	{	
+		if (cost >= 0)
+		{
+			BuyStatusUI.status = $"Cost: {Math.Abs(cost)} {type}";
+		}
+		else
+		{
+			BuyStatusUI.status = $"Harvest: {Math.Abs(cost)} {type}";
+		}
+		
 		if (canAfford() && active)
 		{
 			interacting = true;
