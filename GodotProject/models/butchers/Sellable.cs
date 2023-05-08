@@ -35,8 +35,6 @@ public class Sellable : StaticBody, Gazeable
 
 	public void onGaze(float delta)
 	{	
-		BuyStatusUI.status = $"Sell {type} for {value} each";
-
 		if (canAfford() && active)
 		{
 			interacting = true;

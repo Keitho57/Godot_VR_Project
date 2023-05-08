@@ -5,13 +5,16 @@ public class Buyable : StaticBody, Gazeable
 {
 	
 	private bool interacting = false;
-
+	[Export]
+	public string name = "";
 	[Export]
 	public int cost = 10;
+	[Export]
+	public string description = "";
 
 	[Export(PropertyHint.Enum, "coin,wood,gold")]
 	public string type = "coin";
-
+	
 	[Export]
 	public float lookTime = 1;
 
@@ -51,15 +54,16 @@ public class Buyable : StaticBody, Gazeable
 	}
 
 	public void onGaze(float delta)
-	{	
-		if (cost >= 0)
-		{
-			BuyStatusUI.status = $"Cost: {Math.Abs(cost)} {type}";
-		}
-		else
-		{
-			BuyStatusUI.status = $"Harvest: {Math.Abs(cost)} {type}";
-		}
+	{
+		if(cost<0){ 
+			
+			ActiveUI.Value= $"Gathering {(name)}";}
+			
+	else if(cost == 100){ActiveUI.Value= $"The King needs this road built peasant! {(name)}!";
+		
+	}else{
+		ActiveUI.Value= $"Buying {(name)} : \n + {(description)} \n ";
+	}
 		
 		if (canAfford() && active)
 		{
@@ -92,6 +96,10 @@ public class Buyable : StaticBody, Gazeable
 		// Update UI
 		Global.interactionTimer = -1;
 	}
+//public void inspect(float delta)
+//	{
+//		if(onGaze)
+//	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -123,6 +131,7 @@ public class Buyable : StaticBody, Gazeable
 				{
 					if (child is AnimationPlayer)
 					{
+						
 						RemoveChild((Node)child);
 						GD.Print("b");
 					}

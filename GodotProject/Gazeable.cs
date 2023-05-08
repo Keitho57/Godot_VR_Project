@@ -3,7 +3,7 @@ using System;
 
 public interface Gazeable
 {
-    void onGaze(float delta);
+	void onGaze(float delta);
 
-    void endGaze(float delta);
+	void endGaze(float delta);
 }
