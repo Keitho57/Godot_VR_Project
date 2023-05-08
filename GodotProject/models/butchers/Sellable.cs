@@ -7,7 +7,7 @@ public class Sellable : StaticBody, Gazeable
 	private bool interacting = false;
 
 	[Export]
-	public int value = 1;
+	public int val = 1;
 
 	[Export(PropertyHint.Enum, "coin,wood,gold")]
 	public string type = "coin";
@@ -22,7 +22,7 @@ public class Sellable : StaticBody, Gazeable
 
 	public void transaction()
 	{
-		Global.inventory["coin"] += Global.inventory[type] * value;
+		Global.inventory["coin"] += Global.inventory[type] * val;
 		Global.inventory[type] = 0;
 
 		active = false;
@@ -35,6 +35,7 @@ public class Sellable : StaticBody, Gazeable
 
 	public void onGaze(float delta)
 	{	
+		ActiveUI.Value= $"Sell all {type}\nfor {val} coins\neach";
 		if (canAfford() && active)
 		{
 			interacting = true;

@@ -20,8 +20,10 @@
 [ext_resource path="res://models/misc/Sign.glb" type="PackedScene" id=18]
 
 [sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.212894, 0.210765, 0.454297 )
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.229296, 0.190167, 0.306746 )
 
 [node name="World" type="Spatial"]
 
@@ -41,7 +43,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28051, 0.7962, -19.661 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.34585, 0.27731, 14.5549 )
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68024, 3.61795, 0 )
 
 [node name="Stalls" type="Node" parent="."]
 
@@ -60,13 +61,13 @@ transform = Transform( -1.99325, 0, -0.164225, 0, 2, 0, 0.164225, 0, -1.99325, 1
 [node name="butchers" parent="Stalls" instance=ExtResource( 4 )]
 transform = Transform( -1.9814, 0, 0.272157, 0, 2, 0, -0.272157, 0, -1.9814, 15.4212, 0.54641, 9.58723 )
 script = ExtResource( 17 )
-value = 1
+val = 1
 type = "wood"
 
 [node name="butchers2" parent="Stalls" instance=ExtResource( 4 )]
 transform = Transform( 1.99756, 0, -0.0987455, 0, 2, 0, 0.0987455, 0, 1.99756, -4.55358, 0.52565, -13.8336 )
 script = ExtResource( 17 )
-value = 5
+val = 1
 type = "gold"
 
 [node name="Rocks" type="Node" parent="."]
@@ -221,13 +222,6 @@ transform = Transform( 0.322146, 0, 0.814378, 0, 0.856462, 0, -0.758147, 0, 0.34
 [node name="Tree18" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.495013, 0, 0.707263, 0, 0.856462, 0, -0.658428, 0, 0.531728, 29.1025, -0.27874, -18.0795 )
 
-[node name="Tree26" parent="Trees" instance=ExtResource( 9 )]
-transform = Transform( 0.776498, 0, -0.132667, 0, 0.69679, 0, 0.132667, 0, 0.776498, 1.9067, 1.0682, -3.90874 )
-script = ExtResource( 15 )
-cost = -6
-type = "wood"
-lookTime = 5.0
-
 [node name="Walls" type="Node" parent="."]
 
 [node name="RocksToMountain" type="Node" parent="Walls"]
@@ -354,4 +348,26 @@ transform = Transform( 4, 0, 0, 0, 6, 0, 0, 0, 1, 10.1736, 1.76955, -18.0017 )
 transform = Transform( 0.125, 0, 0, 0, 0.0833333, 0, 0, 0, 0.5, 0.00526261, -0.147318, 0.0461979 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Signs/Sign4"]
+shape = SubResource( 2 )
+
+[node name="Sign5" type="StaticBody" parent="Signs"]
+transform = Transform( 2.91955, 0, 0.683567, 0, 6, 0, -2.73427, 0, 0.729888, 16.5197, 1.76955, 3.44597 )
+script = ExtResource( 17 )
+type = "wood"
+
+[node name="Sign2" parent="Signs/Sign5" instance=ExtResource( 18 )]
+transform = Transform( -0.125, 0, -1.09278e-08, 0, 0.0833333, 0, 4.37114e-08, 0, -0.5, 0.00526261, -0.147318, -0.187734 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Signs/Sign5"]
+shape = SubResource( 2 )
+
+[node name="Sign6" type="StaticBody" parent="Signs"]
+transform = Transform( 3.02958, 0, -0.652958, 0, 6, 0, 2.61183, 0, 0.757394, -10.0476, 1.76955, -0.0819731 )
+script = ExtResource( 17 )
+type = "gold"
+
+[node name="Sign2" parent="Signs/Sign6" instance=ExtResource( 18 )]
+transform = Transform( -0.125, 0, -1.09278e-08, 0, 0.0833333, 0, 4.37114e-08, 0, -0.5, 0.00526261, -0.147318, -0.187734 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Signs/Sign6"]
 shape = SubResource( 2 )
