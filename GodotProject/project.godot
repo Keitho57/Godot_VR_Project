@@ -11,12 +11,17 @@ config_version=4
 [application]
 
 config/name="cs423_final_project"
-run/main_scene="res://World.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://scripts/Global.cs"
+
+[gdnative]
+
+singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib" ]
+singletons_disabled=[  ]
 
 [gui]
 
