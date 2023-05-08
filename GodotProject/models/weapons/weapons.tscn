@@ -282,6 +282,9 @@ surfaces/0 = {
 "vertex_count": 48
 }
 
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( 2.39206, 0.00973026, 8.57895, 2.39206, -0.236267, 8.57895, -2.40676, 0.00973026, 8.57895, 0.11572, 0.132777, -7.10677, -0.314558, -0.29779, 12.5796, 0.299856, 0.132825, 12.515, 0.0537147, -0.359313, -6.98168, -2.40676, -0.236267, 8.08669, 0.607533, 0.0712536, -6.67503, 0.176316, -0.359362, 8.08669, -0.5607, 0.0712536, -6.79608, -0.314558, 0.132825, 12.515, 0.484463, -0.297694, -6.67503, 0.361392, -0.29779, 12.515, -0.314558, 0.132777, -6.67503, -0.437629, -0.297694, -6.79608, -0.191018, -0.359362, 7.96362, -0.191487, -0.359313, -6.67503, 2.39206, -0.236267, 8.08669, 0.0523641, 0.0070097, -7.80283, 0.299856, 0.132777, -6.67503, -2.40676, -0.236267, 8.57895, 0.176786, -0.359313, -6.73354, -2.40676, 0.00973026, 8.08669, 2.39206, 0.00973026, 8.08669, 0.0509117, -0.230621, -7.55773, -0.129952, 0.132777, -7.10677, 0.361392, -0.297694, -6.98168, -0.306764, 0.00660981, -7.22663 )
+
 [sub_resource type="ArrayMesh" id=9]
 resource_name = "weapons_Plane008"
 surfaces/0 = {
@@ -353,9 +356,6 @@ surfaces/1 = {
 "skeleton_aabb": [  ],
 "vertex_count": 226
 }
-
-[sub_resource type="ConvexPolygonShape" id=13]
-points = PoolVector3Array( 2.39206, 0.00973026, 8.57895, 2.39206, -0.236267, 8.57895, -2.40676, 0.00973026, 8.57895, 0.11572, 0.132777, -7.10677, -0.314558, -0.29779, 12.5796, 0.299856, 0.132825, 12.515, 0.0537147, -0.359313, -6.98168, -2.40676, -0.236267, 8.08669, 0.607533, 0.0712536, -6.67503, 0.176316, -0.359362, 8.08669, -0.5607, 0.0712536, -6.79608, -0.314558, 0.132825, 12.515, 0.484463, -0.297694, -6.67503, 0.361392, -0.29779, 12.515, -0.314558, 0.132777, -6.67503, -0.437629, -0.297694, -6.79608, -0.191018, -0.359362, 7.96362, -0.191487, -0.359313, -6.67503, 2.39206, -0.236267, 8.08669, 0.0523641, 0.0070097, -7.80283, 0.299856, 0.132777, -6.67503, -2.40676, -0.236267, 8.57895, 0.176786, -0.359313, -6.73354, -2.40676, 0.00973026, 8.08669, 2.39206, 0.00973026, 8.08669, 0.0509117, -0.230621, -7.55773, -0.129952, 0.132777, -7.10677, 0.361392, -0.297694, -6.98168, -0.306764, 0.00660981, -7.22663 )
 
 [node name="weapons" type="StaticBody"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
@@ -508,21 +508,43 @@ mesh = SubResource( 5 )
 transform = Transform( 0.000357813, 0.04262, -0.0100742, -0.00151282, 0.0100806, 0.0425931, 0.0437683, 1.30522e-09, 0.00155456, 1.94216, 0.311443, 0.491576 )
 mesh = SubResource( 6 )
 
-[node name="Bow" type="MeshInstance" parent="."]
-transform = Transform( -2.43669e-09, 0.0188166, 0.160685, 2.43669e-09, 0.00605235, -0.499566, -0.0204405, -1.76722e-09, -6.25577e-08, 1.92972, 0.339167, 0.0520618 )
-mesh = SubResource( 7 )
+[node name="Bow3" type="StaticBody" parent="."]
+transform = Transform( -0.00328448, 0.000113884, -0.00940015, 0.0102114, 3.66319e-05, -0.00302352, 1.32838e-09, -0.000384621, -0.00328448, 1.94447, 0.315211, 0.395044 )
+script = ExtResource( 8 )
+name = "Bow"
+description = "A bow made from the finest yew tree and horsehair."
 
-[node name="Circle" type="MeshInstance" parent="Bow"]
+[node name="Bow2" type="MeshInstance" parent="Bow3"]
+transform = Transform( -5.98207e-06, 4.23193e-06, -48.9225, 48.1618, 15.4912, -1.28191e-05, 0.583491, -1.81406, 8.32086e-07, 2.54689, 802.879, 10.406 )
+mesh = SubResource( 7 )
+skeleton = NodePath("../..")
+
+[node name="Circle" type="MeshInstance" parent="Bow3/Bow2"]
 transform = Transform( 0.369531, 0, 0, 0, 0, -0.184766, 0, 0.0123177, 0, -6.43026, -0.274464, -0.508166 )
 mesh = SubResource( 8 )
 
-[node name="Bow001" type="MeshInstance" parent="."]
-transform = Transform( -2.43669e-09, 0.0188166, 0.160685, 2.43669e-09, 0.00605235, -0.499566, -0.0204405, -1.76722e-09, -6.25577e-08, 1.92972, 0.339167, -0.125217 )
-mesh = SubResource( 9 )
+[node name="CollisionShape2" type="CollisionShape" parent="Bow3"]
+transform = Transform( -0.318905, -2.69978, -0.962632, -14.996, 0.141782, 0.0181034, 0.131413, 9.62762, -0.270208, 6.65254, 803.182, 8.49509 )
+shape = SubResource( 13 )
 
-[node name="Circle001" type="MeshInstance" parent="Bow001"]
+[node name="Bow" type="StaticBody" parent="."]
+transform = Transform( -2.43017e-09, 0.0188166, 0.160685, 2.44472e-09, 0.00605235, -0.499566, -0.0204405, -1.77897e-09, -6.14673e-08, 1.92972, 0.339167, 0.0520618 )
+script = ExtResource( 8 )
+name = "Bow"
+description = "A bow made from the finest yew tree and horsehair."
+
+[node name="Bow001" type="MeshInstance" parent="Bow"]
+transform = Transform( 1, -5.74914e-10, 5.33464e-08, -4.38433e-10, 1, 9.53675e-07, 1.07661e-11, 1.86265e-09, 1, 8.67292, 0, 5.96046e-08 )
+mesh = SubResource( 9 )
+skeleton = NodePath("../..")
+
+[node name="Circle001" type="MeshInstance" parent="Bow/Bow001"]
 transform = Transform( 0.369531, 0, 0, 0, 0, -0.184766, 0, 0.0123177, 0, -6.43026, -0.274464, -0.508166 )
 mesh = SubResource( 10 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Bow"]
+transform = Transform( 0.956031, 0.291639, -0.00246759, 0.290971, -0.95642, -0.0019514, -0.0366142, 0.0143444, -0.0799381, 7.07056, -0.418724, 0.172059 )
+shape = SubResource( 13 )
 
 [node name="Bow002" type="MeshInstance" parent="."]
 transform = Transform( -0.0123433, 0, 0.41829, 0, 0.019766, 0, -0.0162928, 0, -0.316891, 1.51667, 0.455589, 0.514131 )
@@ -531,7 +553,9 @@ mesh = SubResource( 11 )
 [node name="SwordBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32192, 0.364607, -0.337395 )
 script = ExtResource( 8 )
+name = "Sword"
 cost = 50
+description = "A bastard sword made from the crude steel."
 
 [node name="Sword001" type="MeshInstance" parent="SwordBody"]
 transform = Transform( 0.0176436, -6.5261e-10, -0.0400847, -0.00610325, 0.0432853, -0.00268639, 0.0396173, 0.00666831, 0.0174379, 0.314353, 0.12017, -0.207702 )
@@ -539,5 +563,37 @@ mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="SwordBody"]
+transform = Transform( 0.0176436, -6.5261e-10, -0.0400847, -0.00610325, 0.0432853, -0.00268639, 0.0396173, 0.00666831, 0.0174379, 0.314353, 0.12017, -0.207702 )
+shape = SubResource( 13 )
+
+[node name="SwordBody2" type="StaticBody" parent="."]
+transform = Transform( 0.358319, 0.933599, 0, -0.87341, 0.335218, 0.353246, 0.32979, -0.126575, 0.93553, 1.82058, 0.587599, 0.694064 )
+script = ExtResource( 8 )
+name = "Sword"
+cost = 50
+description = "A bastard sword made from the crude steel."
+
+[node name="Sword001" type="MeshInstance" parent="SwordBody2"]
+transform = Transform( 0.0176436, -6.5261e-10, -0.0400847, -0.00610325, 0.0432853, -0.00268639, 0.0396173, 0.00666831, 0.0174379, 0.314353, 0.12017, -0.207702 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="SwordBody2"]
+transform = Transform( 0.0176436, -6.5261e-10, -0.0400847, -0.00610325, 0.0432853, -0.00268639, 0.0396173, 0.00666831, 0.0174379, 0.314353, 0.12017, -0.207702 )
+shape = SubResource( 13 )
+
+[node name="SwordBody3" type="StaticBody" parent="."]
+transform = Transform( 0.358319, 0.933599, 0, -0.726117, 0.278686, 0.628561, 0.586824, -0.225225, 0.777761, 1.82058, 0.614027, 0.5625 )
+script = ExtResource( 8 )
+name = "Sword"
+cost = 50
+description = "A bastard sword made from the crude steel."
+
+[node name="Sword001" type="MeshInstance" parent="SwordBody3"]
+transform = Transform( 0.0176436, -6.5261e-10, -0.0400847, -0.00610325, 0.0432853, -0.00268639, 0.0396173, 0.00666831, 0.0174379, 0.314353, 0.12017, -0.207702 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="SwordBody3"]
 transform = Transform( 0.0176436, -6.5261e-10, -0.0400847, -0.00610325, 0.0432853, -0.00268639, 0.0396173, 0.00666831, 0.0174379, 0.314353, 0.12017, -0.207702 )
 shape = SubResource( 13 )
