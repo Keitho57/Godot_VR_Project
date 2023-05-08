@@ -16,7 +16,7 @@ public class Buyable : StaticBody, Gazeable
 	public float lookTime = 1;
 
 	[Export]
-	public string name = "";
+	public string name = "a";
 	
 	public float currentLookTime;
 	public bool active = true;

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://models/environment/Environment.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://VRPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://models/archway/Archway.tscn" type="PackedScene" id=3]
 [ext_resource path="res://models/butchers/butchers.tscn" type="PackedScene" id=4]
 [ext_resource path="res://models/cloths/cloth_shop.tscn" type="PackedScene" id=5]
@@ -35,8 +35,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28051, 0.7962, -19.661 )
 [node name="BackArchway" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.34585, 0.27731, 14.5549 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.27121, 4.0482, 0 )
+[node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68024, 3.61795, 0 )
 
 [node name="Stalls" type="Node" parent="."]
 
