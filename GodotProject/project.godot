@@ -20,8 +20,8 @@ Global="*res://scripts/Global.cs"
 
 [gdnative]
 
-singletons=[ "res://addons/godot-oculus/godot_oculus.gdnlib", "res://addons/godot-openvr/godot_openvr.gdnlib" ]
-singletons_disabled=[ "res://addons/godot-oculus/godot_oculus.gdnlib" ]
+singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib" ]
+singletons_disabled=[  ]
 
 [gui]
 

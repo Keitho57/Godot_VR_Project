@@ -106,7 +106,6 @@ transform = Transform( 0.800461, 0, -0.5815, 0, 0.504667, 0, 0.788536, 0, 0.5902
 [node name="Tree19" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.402693, 0, -0.201632, 0, 0.450352, 0, 0.201632, 0, 0.402693, -3.45359, 0.90508, -18.5134 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -4
 type = "wood"
 lookTime = 4.0
@@ -123,7 +122,6 @@ transform = Transform( 0.402693, 0, -0.201632, 0, 0.450352, 0, 0.201632, 0, 0.40
 [node name="Tree10" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.402693, 0, -0.201632, 0, 0.301424, 0, 0.201632, 0, 0.402693, -11.9503, 0.7482, -16.9788 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -2
 type = "wood"
 lookTime = 3.0
@@ -131,7 +129,6 @@ lookTime = 3.0
 [node name="Tree11" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.44392, 0, -0.075845, 0, 0.464234, 0, 0.075845, 0, 0.44392, -7.8333, 0.89518, -15.4326 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -4
 type = "wood"
 lookTime = 4.0
@@ -139,7 +136,6 @@ lookTime = 4.0
 [node name="Tree12" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.776498, 0, -0.132667, 0, 0.69679, 0, 0.132667, 0, 0.776498, 19.3834, 1.0682, 4.94707 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -6
 type = "wood"
 lookTime = 5.0
@@ -147,7 +143,6 @@ lookTime = 5.0
 [node name="Tree14" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.776498, 0, -0.132667, 0, 0.69679, 0, 0.132667, 0, 0.776498, 18.7146, 1.0682, -15.1006 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -6
 type = "wood"
 lookTime = 5.0
@@ -155,7 +150,6 @@ lookTime = 5.0
 [node name="Tree13" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.776498, 0, -0.132667, 0, 0.50089, 0, 0.132667, 0, 0.776498, 19.5912, 1.0682, -2.94957 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -5
 type = "wood"
 lookTime = 5.0
@@ -166,7 +160,6 @@ transform = Transform( 0.221043, 0, -0.0130183, 0, 0.152488, 0, 0.0130183, 0, 0.
 [node name="Tree24" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.221043, 0, -0.0130183, 0, 0.152488, 0, 0.0130183, 0, 0.221043, -5.85592, 0.74775, -9.22164 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -1
 type = "wood"
 lookTime = 2.0
@@ -174,7 +167,6 @@ lookTime = 2.0
 [node name="Tree25" parent="Trees" instance=ExtResource( 9 )]
 transform = Transform( 0.189709, 0, 0.114194, 0, 0.234591, 0, -0.114194, 0, 0.189709, -9.06878, 0.81902, -10.8622 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -1
 type = "wood"
 lookTime = 2.0
@@ -182,7 +174,6 @@ lookTime = 2.0
 [node name="Tree4" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.290915, 0, -0.117007, 0, 0.270749, 0, 0.117007, 0, 0.290915, 21.4841, 0.78827, -10.7132 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -4
 type = "wood"
 lookTime = 3.0
@@ -190,7 +181,6 @@ lookTime = 3.0
 [node name="Tree5" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.313497, 0, -0.00644761, 0, 0.196596, 0, 0.00644761, 0, 0.313497, 25.1391, 0.78827, -3.13078 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -2
 type = "wood"
 lookTime = 2.0
@@ -198,7 +188,6 @@ lookTime = 2.0
 [node name="Tree6" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.463885, 0, -0.186577, 0, 0.5, 0, 0.186577, 0, 0.463885, 23.2377, 1.06714, 6.91839 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -10
 type = "wood"
 lookTime = 6.0
@@ -206,7 +195,6 @@ lookTime = 6.0
 [node name="Tree7" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.492782, 0, -0.0846508, 0, 0.5, 0, 0.0846508, 0, 0.492782, 25.0995, 1.05684, 2.04539 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -10
 type = "wood"
 lookTime = 6.0
@@ -223,7 +211,6 @@ transform = Transform( 0.495013, 0, 0.707263, 0, 0.856462, 0, -0.658428, 0, 0.53
 [node name="Tree17" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.495013, 0, 0.707263, 0, 0.476472, 0, -0.658428, 0, 0.531728, 21.6451, -1.80702, 12.5025 )
 script = ExtResource( 15 )
-name = "Tree"
 cost = -8
 type = "wood"
 lookTime = 5.0
@@ -327,7 +314,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0676, 0.666636, 3.54097 )
 [node name="Sign" type="StaticBody" parent="Signs"]
 transform = Transform( 4, 0, 0, 0, 6, 0, 0, 0, 1, 0.00375557, 1.76955, 12.9859 )
 script = ExtResource( 15 )
-name = "TAX"
 cost = 100
 
 [node name="Sign" parent="Signs/Sign" instance=ExtResource( 18 )]
