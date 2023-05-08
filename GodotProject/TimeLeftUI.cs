@@ -23,7 +23,7 @@ public class TimeLeftUI : TextureProgress
 		else
 		{
 			Visible = true;
-			Value = (int)(100 - Global.interactionTimer * 100);
+			Value = (int)(1000 - Global.interactionTimer * 1000);
 		}
 	}
 }

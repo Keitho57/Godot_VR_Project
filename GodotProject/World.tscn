@@ -221,6 +221,13 @@ transform = Transform( 0.322146, 0, 0.814378, 0, 0.856462, 0, -0.758147, 0, 0.34
 [node name="Tree18" parent="Trees" instance=ExtResource( 11 )]
 transform = Transform( 0.495013, 0, 0.707263, 0, 0.856462, 0, -0.658428, 0, 0.531728, 29.1025, -0.27874, -18.0795 )
 
+[node name="Tree26" parent="Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.776498, 0, -0.132667, 0, 0.69679, 0, 0.132667, 0, 0.776498, 1.9067, 1.0682, -3.90874 )
+script = ExtResource( 15 )
+cost = -6
+type = "wood"
+lookTime = 5.0
+
 [node name="Walls" type="Node" parent="."]
 
 [node name="RocksToMountain" type="Node" parent="Walls"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://BalanceUI.cs" type="Script" id=1]
 [ext_resource path="res://TimeLeftUI.cs" type="Script" id=2]
@@ -9,91 +9,88 @@
 [ext_resource path="res://Greztro TTF Personal.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://ActiveUI.cs" type="Script" id=8]
 [ext_resource path="res://textscroll.png" type="Texture" id=9]
+[ext_resource path="res://CenterUI.cs" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
-[node name="UI" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="UI" type="ViewportContainer"]
+anchor_right = 1.0
+anchor_bottom = 2.0
+rect_pivot_offset = Vector2( 792, -540 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="CoinBalance" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 104.0
+margin_bottom = 104.0
 
 [node name="CoinBalanceText" type="Label" parent="CoinBalance"]
-margin_left = 71.0
-margin_top = 36.0
-margin_right = 91.0
-margin_bottom = 50.0
+margin_left = 64.0
+margin_top = 10.0
+margin_right = 84.0
+margin_bottom = 24.0
 rect_scale = Vector2( 4, 4 )
 text = "10"
 script = ExtResource( 1 )
 
 [node name="Coin" type="Sprite" parent="CoinBalance"]
-position = Vector2( 32, 66 )
+position = Vector2( 32, 32 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="TextureProgress" type="TextureProgress" parent="."]
-margin_left = 260.0
-margin_top = 58.0
-margin_right = 774.0
-margin_bottom = 544.0
-value = 8.0
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 6 )
-fill_mode = 4
-tint_under = Color( 0.12549, 0.121569, 0.121569, 0.729412 )
-tint_progress = Color( 0.0156863, 0.639216, 0.113725, 1 )
-script = ExtResource( 2 )
-
 [node name="WoodBalance" type="Control" parent="."]
-margin_top = 57.0
-margin_right = 40.0
-margin_bottom = 97.0
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 104.0
+margin_bottom = 168.0
 
 [node name="WoodBalanceText" type="Label" parent="WoodBalance"]
-margin_left = 71.0
-margin_top = 36.0
-margin_right = 91.0
-margin_bottom = 50.0
+margin_left = 64.0
+margin_top = 10.0
+margin_right = 84.0
+margin_bottom = 24.0
 rect_scale = Vector2( 4, 4 )
 text = "10"
 script = ExtResource( 1 )
 type = "wood"
 
 [node name="Wood" type="Sprite" parent="WoodBalance"]
-position = Vector2( 32, 66 )
+position = Vector2( 32, 32 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
-[node name="StoneBalance" type="Control" parent="."]
-margin_top = 131.0
-margin_right = 40.0
-margin_bottom = 171.0
+[node name="GoldBalance" type="Control" parent="."]
+margin_left = 64.0
+margin_top = 192.0
+margin_right = 104.0
+margin_bottom = 232.0
 
-[node name="WoodBalanceText" type="Label" parent="StoneBalance"]
-margin_left = 71.0
-margin_top = 36.0
-margin_right = 91.0
-margin_bottom = 50.0
+[node name="GoldBalanceText" type="Label" parent="GoldBalance"]
+margin_left = 64.0
+margin_top = 10.0
+margin_right = 84.0
+margin_bottom = 24.0
 rect_scale = Vector2( 4, 4 )
 text = "10"
 script = ExtResource( 1 )
 type = "gold"
 
-[node name="Stone" type="Sprite" parent="StoneBalance"]
-position = Vector2( 32, 66 )
+[node name="Gold" type="Sprite" parent="GoldBalance"]
+position = Vector2( 32, 32 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="ActiveItemLabel" type="Label" parent="."]
-margin_left = 30.0
+margin_left = 65.0
 margin_top = 358.0
-margin_right = 151.0
+margin_right = 186.0
 margin_bottom = 547.0
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 1 )
@@ -108,3 +105,22 @@ show_behind_parent = true
 position = Vector2( 66, 110 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 462.0
+margin_top = 250.0
+margin_right = 962.0
+margin_bottom = 750.0
+rect_scale = Vector2( 0.2, 0.2 )
+
+[node name="TextureProgress" type="TextureProgress" parent="CenterContainer"]
+margin_right = 500.0
+margin_bottom = 500.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1000.0
+value = 1000.0
+texture_progress = ExtResource( 6 )
+fill_mode = 4
+tint_progress = Color( 0.796078, 0.235294, 0.364706, 1 )
+script = ExtResource( 2 )
