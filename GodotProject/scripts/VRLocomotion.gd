@@ -22,6 +22,7 @@ func _ready():
 	
 func _physics_process(delta):
 	velocity = Vector3(0,-0.2,0)
+	
 	# call HUD to display data
 	
 	translate(to_local(kinematic.global_translation))
@@ -51,4 +52,4 @@ func _physics_process(delta):
 		# translate(-direction * speed)
 		velocity += -direction * speed
 	
-	kinematic.move_and_slide(velocity, Vector3.UP)
+	kinematic.move_and_slide(velocity, Vector3.UP, true)
